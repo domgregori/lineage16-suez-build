@@ -1,5 +1,7 @@
-# Build workflow for LineageOS 16.0 suez
-name: Build LineageOS 16.0 - Amazon Fire HD 10 (suez)
+# EXPERIMENTAL: attempt to build LineageOS 17.1 for suez using the
+# existing lineage-16.0 device/kernel/vendor trees (no 17.1 port exists
+# upstream). Expected to fail - this is to find out exactly where.
+name: [EXPERIMENT] Build LineageOS 17.1 - Amazon Fire HD 10 (suez)
 
 on:
   workflow_dispatch:
@@ -74,13 +76,13 @@ jobs:
         git config --global color.ui false
         git config --global advice.detachedHead false
 
-    - name: Initialize LineageOS 16.0 manifest
+    - name: Initialize LineageOS 17.1 manifest
       run: |
         mkdir -p $BUILD_DIR
         cd $BUILD_DIR
         ~/bin/repo init \
           -u https://github.com/LineageOS/android.git \
-          -b lineage-16.0 \
+          -b lineage-17.1 \
           --depth=1 \
           --no-repo-verify \
           --no-clone-bundle
@@ -198,6 +200,6 @@ jobs:
       if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: lineage-16.0-suez
+        name: lineage-17.1-suez-experiment
         path: /mnt/lineage/out/target/product/suez/lineage-*.zip
         retention-days: 7
