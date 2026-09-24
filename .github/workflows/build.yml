@@ -1,7 +1,7 @@
 # EXPERIMENTAL: attempt to build LineageOS 17.1 for suez using the
 # existing lineage-16.0 device/kernel/vendor trees (no 17.1 port exists
 # upstream). Expected to fail - this is to find out exactly where.
-name: [EXPERIMENT] Build LineageOS 17.1 - Amazon Fire HD 10 (suez)
+name: "[EXPERIMENT] Build LineageOS 17.1 - Amazon Fire HD 10 (suez)"
 
 on:
   workflow_dispatch:
